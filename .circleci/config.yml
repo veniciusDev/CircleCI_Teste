@@ -1,9 +1,9 @@
 version: 2
 
 jobs:
-  ios:
-    macos:
-      xcode: "13.0.0"
+  build:  
+    ios:
+       xcode: 13.0.0
     steps:
       - checkout
       - run:
@@ -11,13 +11,13 @@ jobs:
           command: command -v node || brew install node
       - run:
           name: Install Cordova
-          command: npm install -g cordova@9.0.0
+          command: npm install -g cordova@10.0.0
       - run:
           name: Add iOS platform
-          command: cd Example && cordova platform add ios
+          command: cd src/main/mobileapp/ && cordova platform add ios
       - run:
           name: Install intercom plugin
-          command: cd Example && cordova plugin add ../intercom-plugin
+          command: cd src/main/mobileapp/ && cordova plugin add ../intercom-plugin
       - run:
           name: Build
-          command: cd Example && cordova build ios --buildFlag="-UseModernBuildSystem=0"
+          command: cd src/main/mobileapp/ && cordova build ios --buildFlag="-UseModernBuildSystem=0"
