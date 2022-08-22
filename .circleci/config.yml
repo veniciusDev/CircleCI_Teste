@@ -1,0 +1,8 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+     - image: cronapp/sandbox:2.9.1-SP.2
+    setps:
+      - checkout
+      - run: echo "Hello World"
