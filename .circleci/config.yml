@@ -1,9 +1,9 @@
 version: 2.1
 jobs:
   docker:
-    - image: cronapp/sandbox:2.9.1-SP.2
+   - image: cronapp/sandbox:2.9.1-SP.2
   steps:
-    - checkout
-    - run:
-      name: say hello
-      command: echo "hello cronapp!"
+   - checkout
+   - run:
+     name: say hello
+     command: echo "hello cronapp!"
