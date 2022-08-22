@@ -1,23 +1,10 @@
-version: 2
-
+version: 2.1
 jobs:
   build:  
-    ios:
-       xcode: 13.0.0
+    docker:
+      - image: cronapp/sandbox:2.9.1-SP.2
     steps:
-      - checkout
-      - run:
-          name: Install node/npm
-          command: command -v node || brew install node
-      - run:
-          name: Install Cordova
-          command: npm install -g cordova@10.0.0
-      - run:
-          name: Add iOS platform
-          command: cd src/main/mobileapp/ && cordova platform add ios
-      - run:
-          name: Install intercom plugin
-          command: cd src/main/mobileapp/ && cordova plugin add ../intercom-plugin
-      - run:
-          name: Build
-          command: cd src/main/mobileapp/ && cordova build ios --buildFlag="-UseModernBuildSystem=0"
+        - run:
+            name: Install Dependencies
+            command: cordova platform add ios
+            
