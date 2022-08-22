@@ -1,12 +1,13 @@
 version: 2.1
 jobs:
-    docker:
-      - image: cronapp/sandbox:2.9.1-SP.2
-    steps:
-     - checkout 
-     - run:
-        name: Install Dependencies
-        command: echo "Hello my Kombis"
-
-
-            
+  docker:
+    - image: cimg/base:stable
+  steps:
+    - checkout
+    - run:
+      name: say hello
+      command: echo "hello!"
+workflows:
+  run-jobs:
+    jobs:
+      - build
